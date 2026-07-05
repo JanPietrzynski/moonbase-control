@@ -1,0 +1,24 @@
+@use '@angular/material' as mat;
+
+:host {
+  display: flex;
+  width: 100%;
+}
+
+.status-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #fff;
+  border-radius: .5rem;
+  padding: 2rem 1rem;
+  @include mat.elevation(3, black, 0.4); 
+
+  span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: .3rem 0;
+  }
+}
