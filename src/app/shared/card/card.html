@@ -1,4 +1,4 @@
-<article class="status-card">
-  <h3>{{ status() }}</h3>
-  <span>{{ quantity() }}</span>
-</article>
+<button class="status-card" (click)="selectCard()">
+  <h3>{{ card().title }}</h3>
+  <span>{{ card().value }}</span>
+</button>

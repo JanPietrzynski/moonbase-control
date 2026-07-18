@@ -14,11 +14,20 @@
   border-radius: .5rem;
   padding: 2rem 1rem;
   @include mat.elevation(3, black, 0.4); 
+  border: none;
+
+  h3 {
+    font-weight: 400;
+  }
 
   span {
     display: block;
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 400;
     margin: .3rem 0;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }
