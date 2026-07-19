@@ -2,10 +2,14 @@
 <p>Here's what's happening on the moonbase.</p>
 
 <section class="status-container">
-  <app-card [card]="totalMissions" (selected)="selectCard($event)"></app-card>
-  <app-card [card]="activeMissions" (selected)="selectCard($event)"></app-card>
-  <app-card [card]="openIncidents" (selected)="selectCard($event)"></app-card>
-  <app-card [card]="criticalIncidents" (selected)="selectCard($event)"></app-card>
+  @for (card of statusCards; track card.id) {
+    <app-card [card]="card" (selected)="selectCard($event)"></app-card>
+  }
 </section>
 
-<p>Card selected: {{ selectedCardId() }}</p>
+@if(selectedCardId()) {
+  <p>Card selected: {{ selectedCardId() }}</p>
+} @else {
+  <p>Select a card to see available actions.</p>
+}
+
