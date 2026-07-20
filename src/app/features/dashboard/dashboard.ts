@@ -17,7 +17,7 @@ export class Dashboard {
   protected readonly greeting = signal('Good morning, Commander!');
   protected selectedCardId = signal<string | null>(null);
 
-  statusCards: StatusCard[] = [
+  statusCards = signal<StatusCard[]>([
     {
       id: 'total-missions',
       title: 'Total Missions',
@@ -38,7 +38,7 @@ export class Dashboard {
       title: 'Critical Incidents',
       value: 5,
     },
-  ];
+  ]);
 
   selectCard(cardId: string) {
     this.selectedCardId.set(cardId);

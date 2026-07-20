@@ -2,7 +2,7 @@
 <p>Here's what's happening on the moonbase.</p>
 
 <section class="status-container">
-  @for (card of statusCards; track card.id) {
+  @for (card of statusCards(); track card.id) {
     <app-card [card]="card" (selected)="selectCard($event)"></app-card>
   }
 </section>
