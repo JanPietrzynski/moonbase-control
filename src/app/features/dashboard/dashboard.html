@@ -3,7 +3,11 @@
 
 <section class="status-container">
   @for (card of statusCards(); track card.id) {
-    <app-card [card]="card" (selected)="selectCard($event)"></app-card>
+    <app-card 
+      [card]="card"
+      [class.selected]="selectedCardId() === card.id"
+      (selected)="selectCard($event)">
+    </app-card>
   }
 </section>
 

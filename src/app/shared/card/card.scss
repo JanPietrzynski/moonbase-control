@@ -5,6 +5,12 @@
   width: 100%;
 }
 
+:host(.selected) {
+  .status-card {
+    @include mat.elevation(6, black, 0.8);
+  }
+}
+
 .status-card {
   width: 100%;
   display: flex;
