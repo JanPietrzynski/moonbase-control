@@ -6,6 +6,7 @@ export interface StatusCard {
   title: string;
   value: number;
   icon: string;
+  lastUpdated: Date;
 }
 
 @Component({
@@ -24,24 +25,28 @@ export class Dashboard {
       title: 'Total Missions',
       value: 8,
       icon: 'rocket',
+      lastUpdated: new Date('2026-07-24T08:15:00Z'),
     },
     {
       id: 'active-missions',
       title: 'Active Missions',
       value: 2,
       icon: 'check',
+      lastUpdated: new Date('2026-07-24T10:42:00Z'),
     },
     {
       id: 'open-incidents',
       title: 'Open Incidents',
       value: 17,
       icon: 'report',
+      lastUpdated: new Date('2026-07-24T13:28:00Z'),
     },
     {
       id: 'critical-incidents',
       title: 'Critical Incidents',
       value: 5,
       icon: 'error',
+      lastUpdated: new Date('2026-07-24T16:55:00Z'),
     },
   ]);
 

@@ -4,4 +4,5 @@
     <h3>{{ card().title }}</h3>
     <span>{{ card().value }}</span>
   </div>
+  <p class="updated">Last updated: {{ card().lastUpdated | date: 'mediumTime' }}</p>
 </button>

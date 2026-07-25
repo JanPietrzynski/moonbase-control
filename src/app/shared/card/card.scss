@@ -21,13 +21,18 @@
 .status-card {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   gap: .5rem;
+  column-gap: .5rem;
+  row-gap: 1.5rem;
   background-color: #fff;
   border-radius: .5rem;
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 0;
   @include mat.elevation(3, black, 0.4);
   border: none;
+  position: relative;
+  text-align: left;
 
   mat-icon {
     font-size: 1.3rem;
@@ -36,10 +41,6 @@
     width: 1.3rem;
     border-radius: 50%;
     background-color: #e8edfd;
-  }
-
-  .content {
-    text-align: left;
   }
 
   h3 {
@@ -53,6 +54,12 @@
     font-size: 1.5rem;
     font-weight: 500;
     margin: .3rem 0;
+  }
+
+  .updated {
+    font-size: .7rem;
+    color: grey;
+    flex: 0 0 100%;
   }
 
   &:hover {
