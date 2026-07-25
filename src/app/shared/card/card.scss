@@ -1,5 +1,12 @@
 @use '@angular/material' as mat;
 
+@mixin status-card-icon($modifier, $icon-color, $bg-color) {
+  &.status-card--#{$modifier} mat-icon {
+    color: $icon-color;
+    background-color: $bg-color;
+  }
+}
+
 :host {
   display: flex;
   width: 100%;
@@ -14,26 +21,46 @@
 .status-card {
   width: 100%;
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  justify-content: flex-start;
+  gap: .5rem;
   background-color: #fff;
   border-radius: .5rem;
   padding: 2rem 1rem;
   @include mat.elevation(3, black, 0.4);
   border: none;
 
+  mat-icon {
+    font-size: 1.3rem;
+    padding: .6rem;
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+    background-color: #e8edfd;
+  }
+
+  .content {
+    text-align: left;
+  }
+
   h3 {
     font-weight: 400;
+    font-size: .7rem;
+    margin: 0
   }
 
   span {
     display: block;
-    font-size: 1rem;
-    font-weight: 400;
+    font-size: 1.5rem;
+    font-weight: 500;
     margin: .3rem 0;
   }
 
   &:hover {
     cursor: pointer;
   }
+
+  @include status-card-icon('rocket', #4868e9, #e8edfd);
+  @include status-card-icon('check', #5a896c, #ddf0e3);
+  @include status-card-icon('report', #df3d48, #fde7e9);
+  @include status-card-icon('error', #b91c1c, #fecaca);
 }

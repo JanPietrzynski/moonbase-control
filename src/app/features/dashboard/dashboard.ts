@@ -5,6 +5,7 @@ export interface StatusCard {
   id: string;
   title: string;
   value: number;
+  icon: string;
 }
 
 @Component({
@@ -22,21 +23,25 @@ export class Dashboard {
       id: 'total-missions',
       title: 'Total Missions',
       value: 8,
+      icon: 'rocket',
     },
     {
       id: 'active-missions',
       title: 'Active Missions',
       value: 2,
+      icon: 'check',
     },
     {
       id: 'open-incidents',
       title: 'Open Incidents',
       value: 17,
+      icon: 'report',
     },
     {
       id: 'critical-incidents',
       title: 'Critical Incidents',
       value: 5,
+      icon: 'error',
     },
   ]);
 

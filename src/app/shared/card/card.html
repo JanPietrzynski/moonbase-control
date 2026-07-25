@@ -1,4 +1,7 @@
-<button class="status-card" (click)="selectCard()">
-  <h3>{{ card().title }}</h3>
-  <span>{{ card().value }}</span>
+<button class="status-card status-card--{{ card().icon }}" (click)="selectCard()">
+  <mat-icon [fontIcon]="card().icon"></mat-icon>
+  <div class="content">
+    <h3>{{ card().title }}</h3>
+    <span>{{ card().value }}</span>
+  </div>
 </button>
