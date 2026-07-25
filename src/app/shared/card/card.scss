@@ -15,15 +15,20 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: .5rem;
   background-color: #fff;
   border-radius: .5rem;
   padding: 2rem 1rem;
   @include mat.elevation(3, black, 0.4);
   border: none;
 
+  .content {
+    text-align: left;
+  }
+
   h3 {
     font-weight: 400;
+    margin: 0;
   }
 
   span {
