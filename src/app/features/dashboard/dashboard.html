@@ -6,6 +6,8 @@
     <app-card 
       [card]="card"
       [class.selected]="selectedCardId() === card.id"
+      [attr.aria-label]="selectedCardId() === card.id 
+      ? `${card.title} currently selected` : `${card.title}`"
       (selected)="selectCard($event)">
     </app-card>
   }
@@ -16,4 +18,3 @@
 } @else {
   <p>Select a card to see available actions.</p>
 }
-
