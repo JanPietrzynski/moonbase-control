@@ -4,6 +4,10 @@ import { Missions } from './features/missions/missions';
 
 export const routes: Routes = [
   {
+    path: '',
+    component: Dashboard
+  },
+  {
     path: 'dashboard',
     component: Dashboard
   },
