@@ -4,7 +4,7 @@ import { Missions } from './features/missions/missions';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     component: Dashboard
   },
   {
