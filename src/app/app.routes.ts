@@ -5,6 +5,11 @@ import { Missions } from './features/missions/missions';
 export const routes: Routes = [
   {
     path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  },
+  {
+    path: 'dashboard',
     component: Dashboard
   },
   {
