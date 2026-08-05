@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { Dashboard } from './features/dashboard/dashboard';
-import { Missions } from './features/missions/missions';
 
 export const routes: Routes = [
   {
@@ -14,6 +13,6 @@ export const routes: Routes = [
   },
   {
     path: 'missions',
-    component: Missions
+    loadComponent: () => import('./features/missions/missions')
   }
 ];

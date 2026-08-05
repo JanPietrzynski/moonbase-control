@@ -6,4 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './missions.html',
   styleUrl: './missions.scss',
 })
-export class Missions {}
+export default class Missions { }
