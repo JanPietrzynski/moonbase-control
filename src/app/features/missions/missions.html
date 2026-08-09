@@ -1,2 +1,9 @@
 <h2>Missions</h2>
 <p>Manage and monitor Moonbase missions.</p>
+
+@for (mission of missions(); track mission.id) {
+  <article>
+    <h3>{{ mission.name }}</h3>
+    <p>{{ mission.description }}</p>
+  </article>
+}
