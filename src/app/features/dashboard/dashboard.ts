@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Card } from '../../shared/card/card';
+import { MissionsService } from '../missions/missions.service';
 
 export interface StatusCard {
   id: string;
@@ -16,21 +17,35 @@ export interface StatusCard {
   styleUrl: './dashboard.scss',
 })
 export class Dashboard {
+  private readonly missionsService = inject(MissionsService);
+  
   protected readonly greeting = signal('Good morning, Commander!');
   protected selectedCardId = signal<string | null>(null);
 
-  statusCards = signal<StatusCard[]>([
+  readonly missions = this.missionsService.missions;
+  readonly totalMissions = computed(
+    () => this.missions.value().length,
+  );
+
+  readonly activeMissions = computed(
+    () => this.missions
+      .value()
+      .filter(mission => mission.status === 'active')
+      .length,
+  );
+
+  readonly statusCards = computed<StatusCard[]>(() => [
     {
       id: 'total-missions',
       title: 'Total Missions',
-      value: 8,
+      value: this.totalMissions(),
       icon: 'rocket',
       lastUpdated: new Date('2026-07-24T08:15:00Z'),
     },
     {
       id: 'active-missions',
       title: 'Active Missions',
-      value: 2,
+      value: this.activeMissions(),
       icon: 'check',
       lastUpdated: new Date('2026-07-24T10:42:00Z'),
     },
