@@ -1,6 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { Card } from '../../shared/card/card';
 import { MissionsService } from '../missions/missions.service';
+import { IncidentSeverity, IncidentsService } from '../incidents/incidents.service';
 
 export interface StatusCard {
   id: string;
@@ -18,11 +19,14 @@ export interface StatusCard {
 })
 export class Dashboard {
   private readonly missionsService = inject(MissionsService);
-  
+  private readonly incidentsService = inject(IncidentsService);
+
   protected readonly greeting = signal('Good morning, Commander!');
   protected selectedCardId = signal<string | null>(null);
 
   readonly missions = this.missionsService.missions;
+  readonly incidents = this.incidentsService.incidents;
+
   readonly totalMissions = computed(
     () => this.missions.value().length,
   );
@@ -32,6 +36,18 @@ export class Dashboard {
       .value()
       .filter(mission => mission.status === 'active')
       .length,
+  );
+
+  readonly totalIncidents = computed(
+    () => this.incidents.value().length,
+  );
+
+  readonly criticalIncidents = computed(
+    () =>
+      this.incidents
+        .value()
+        .filter(incident => incident.severity === IncidentSeverity.Critical)
+        .length,
   );
 
   readonly statusCards = computed<StatusCard[]>(() => [
@@ -52,14 +68,14 @@ export class Dashboard {
     {
       id: 'open-incidents',
       title: 'Open Incidents',
-      value: 17,
+      value: this.totalIncidents(),
       icon: 'report',
       lastUpdated: new Date('2026-07-24T13:28:00Z'),
     },
     {
       id: 'critical-incidents',
       title: 'Critical Incidents',
-      value: 5,
+      value: this.criticalIncidents(),
       icon: 'error',
       lastUpdated: new Date('2026-07-24T16:55:00Z'),
     },
