@@ -1,1 +1,33 @@
-<p>report-incident works!</p>
+<h3>Report incident</h3>
+
+<form>
+	<mat-form-field>
+		<mat-label>Title</mat-label>
+		<input matInput [formField]="incidentForm.title" />
+	</mat-form-field>
+
+	<mat-form-field>
+		<mat-label>Description</mat-label>
+		<textarea matInput rows="4" [formField]="incidentForm.description"></textarea>
+	</mat-form-field>
+
+	<mat-form-field>
+		<mat-label>Severity</mat-label>
+		<mat-select [formField]="incidentForm.severity">
+			<mat-option value="">Select severity</mat-option>
+			@for (severity of severities; track severity) {
+			<mat-option [value]="severity">
+				{{ severity }}
+			</mat-option>
+			}
+		</mat-select>
+	</mat-form-field>
+</form>
+
+<section>
+	<h3>Incident preview</h3>
+
+	<p>Title: {{ incidentModel().title }}</p>
+	<p>Description: {{ incidentModel().description }}</p>
+	<p>Severity: {{ incidentModel().severity }}</p>
+</section>
