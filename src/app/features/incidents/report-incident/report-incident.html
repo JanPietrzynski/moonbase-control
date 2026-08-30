@@ -1,6 +1,6 @@
 <h3>Report incident</h3>
 
-<form>
+<form [formRoot]="incidentForm">
 	<mat-form-field>
 		<mat-label>Title</mat-label>
 		<input matInput [formField]="incidentForm.title" />
@@ -34,6 +34,10 @@
 			<mat-error>{{ error.message }}</mat-error>
 		}
 	}
+
+	<button matButton="filled" type="submit">
+    Report incident
+  </button>
 </form>
 
 <section>
