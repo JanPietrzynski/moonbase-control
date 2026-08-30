@@ -6,6 +6,12 @@
 		<input matInput [formField]="incidentForm.title" />
 	</mat-form-field>
 
+	@if (incidentForm.title().invalid() && incidentForm.title().touched()) {
+		@for (error of incidentForm.title().errors(); track error) {
+			<mat-error>{{ error.message }}</mat-error>
+		}
+	}
+
 	<mat-form-field>
 		<mat-label>Description</mat-label>
 		<textarea matInput rows="4" [formField]="incidentForm.description"></textarea>
@@ -22,6 +28,12 @@
 			}
 		</mat-select>
 	</mat-form-field>
+
+	@if (incidentForm.severity().invalid() && incidentForm.severity().touched()) {
+		@for (error of incidentForm.severity().errors(); track error) {
+			<mat-error>{{ error.message }}</mat-error>
+		}
+	}
 </form>
 
 <section>
