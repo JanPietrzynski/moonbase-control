@@ -393,6 +393,13 @@
       "system": "structural",
       "icon": "tire_repair",
       "reportedAt": "2026-04-30T10:00:00.000Z"
+    },
+    {
+      "title": "Test incident",
+      "description": "Description",
+      "severity": "critical",
+      "id": "QvDklnuX2g4"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

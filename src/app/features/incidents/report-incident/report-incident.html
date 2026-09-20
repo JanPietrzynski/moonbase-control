@@ -1,13 +1,13 @@
 <h3>Report incident</h3>
 
-<form>
+<form [formRoot]="incidentForm">
 	<mat-form-field>
 		<mat-label>Title</mat-label>
 		<input matInput [formField]="incidentForm.title" />
 	</mat-form-field>
 
-	@if (incidentForm.title().invalid() && incidentForm.title().touched()) {
-		@for (error of incidentForm.title().errors(); track error) {
+	@if(incidentForm.title().invalid() && incidentForm.title().touched()) {
+		@for(error of incidentForm.title().errors(); track error) {
 			<mat-error>{{ error.message }}</mat-error>
 		}
 	}
@@ -29,11 +29,15 @@
 		</mat-select>
 	</mat-form-field>
 
-	@if (incidentForm.severity().invalid() && incidentForm.severity().touched()) {
-		@for (error of incidentForm.severity().errors(); track error) {
+	@if(incidentForm.severity().invalid() && incidentForm.title().touched()){
+		@for(error of incidentForm.severity().errors(); track error) {
 			<mat-error>{{ error.message }}</mat-error>
 		}
 	}
+
+	<button matButton="filled" type="submit">
+		Report Incident
+	</button>
 </form>
 
 <section>
