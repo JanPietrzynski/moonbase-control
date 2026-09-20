@@ -12,6 +12,13 @@ describe('Card', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(Card);
+    fixture.componentRef.setInput('card', {
+      id: 'total-missions',
+      title: 'Total Missions',
+      value: 3,
+      icon: 'rocket',
+      lastUpdated: new Date('2026-07-24T08:15:00Z'),
+    });
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
