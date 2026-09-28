@@ -1,9 +1,8 @@
 import { Component, signal } from '@angular/core';
-import { Card } from '../../shared/card/card';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [Card],
+  imports: [],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
