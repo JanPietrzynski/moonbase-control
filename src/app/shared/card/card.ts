@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { StatusCard } from '../../features/dashboard/dashboard';
 
 @Component({
   selector: 'app-card',
@@ -7,6 +8,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './card.scss',
 })
 export class Card {
-  readonly status = input.required<string>();
-  readonly quantity = input.required();
+  readonly card = input.required<StatusCard>();
 }
