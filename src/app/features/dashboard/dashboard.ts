@@ -1,13 +1,9 @@
 import { Component, signal } from '@angular/core';
-
-export interface StatusCard {
-  title: string;
-  value: number;
-}
+import { Card } from '../../shared/card/card';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [Card],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
