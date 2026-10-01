@@ -2,10 +2,8 @@
 <p>Here's what's happening on the moonbase.</p>
 
 <section class="status-container">
-  <app-card [card]="totalMissions" (selected)="selectCard($event)"></app-card>
-  <app-card [card]="activeMissions" (selected)="selectCard($event)"></app-card>
-  <app-card [card]="openIncidents" (selected)="selectCard($event)"></app-card>
-  <app-card [card]="criticalIncidents" (selected)="selectCard($event)"></app-card>
+  <app-card [card]="totalMissions"></app-card>
+  <app-card [card]="activeMissions"></app-card>
+  <app-card [card]="openIncidents"></app-card>
+  <app-card [card]="criticalIncidents"></app-card>
 </section>
-
-<p>Card selected: {{ selectedCardId() }}</p>

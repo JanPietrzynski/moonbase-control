@@ -9,9 +9,4 @@ import { StatusCard } from '../../features/dashboard/dashboard';
 })
 export class Card {
  readonly card = input.required<StatusCard>();
- selected = output<string>();
-
- selectCard() {
-  this.selected.emit(this.card().id);
- }
 }

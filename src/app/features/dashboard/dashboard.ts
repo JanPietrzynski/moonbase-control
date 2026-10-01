@@ -15,7 +15,6 @@ export interface StatusCard {
 })
 export class Dashboard {
   protected readonly greeting = signal('Good morning, Commander!');
-  protected selectedCardId = signal<string | null>(null);
 
   totalMissions: StatusCard = {
     id: 'total-missions',
@@ -40,8 +39,4 @@ export class Dashboard {
     title: 'Critical Incidents',
     value: 5,
   };
-
-  selectCard(cardId: string) {
-    this.selectedCardId.set(cardId);
-  }
 }
