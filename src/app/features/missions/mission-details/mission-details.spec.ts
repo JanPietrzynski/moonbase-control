@@ -2,24 +2,25 @@ import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import Missions from './missions';
+import MissionDetails from './mission-details';
 
-describe('Missions', () => {
-  let component: Missions;
-  let fixture: ComponentFixture<Missions>;
+describe('MissionDetails', () => {
+  let component: MissionDetails;
+  let fixture: ComponentFixture<MissionDetails>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Missions],
+      imports: [MissionDetails],
       providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Missions);
+    fixture = TestBed.createComponent(MissionDetails);
+    fixture.componentRef.setInput('id', 'ASR482917');
     component = fixture.componentInstance;
     fixture.detectChanges();
     TestBed.inject(HttpTestingController)
       .match(() => true)
-      .forEach((req) => req.flush([]));
+      .forEach((req) => req.flush({}));
     await fixture.whenStable();
   });
 

@@ -16,6 +16,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/missions/missions')
   },
   {
+    path: 'missions/:id',
+    loadComponent: () => import('./features/missions/mission-details/mission-details')
+  },
+  {
     path: 'incidents',
     loadComponent: () => import('./features/incidents/incidents')
   }

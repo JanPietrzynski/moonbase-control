@@ -37,3 +37,26 @@ body {
   height: 100%;
 }
 /* You can add global styles to this file, and also import other style files */
+
+// Status badge, used by the missions list and mission details
+@mixin status-color($status, $text-color, $bg-color) {
+  &.status--#{$status} {
+    color: $text-color;
+    background-color: $bg-color;
+  }
+}
+
+.status {
+  display: inline-block;
+  margin-top: .5rem;
+  padding: .2rem .6rem;
+  border-radius: 1rem;
+  font-size: .7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  @include status-color('planned', #4868e9, #e8edfd);
+  @include status-color('active', #5a896c, #ddf0e3);
+  @include status-color('critical', #df3d48, #fde7e9);
+  @include status-color('completed', #555, #ececec);
+}

@@ -1,9 +1,22 @@
 <h2>Missions</h2>
 <p>Manage and monitor Moonbase missions.</p>
 
-@for (mission of missions.value(); track mission.id) {
-  <article>
-    <h3>{{ mission.name }}</h3>
-    <p>{{ mission.description }}</p>
-  </article>
-}
+<section class="missions-list">
+  @for (mission of missions.value(); track mission.id) {
+    <a [routerLink]="['/missions', mission.id]">
+      <mat-card appearance="outlined" class="mission-card">
+        <mat-card-header>
+          <mat-card-title>{{ mission.name }}</mat-card-title>
+          <mat-card-subtitle>{{ mission.id }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <span class="status status--{{ mission.status }}">{{ mission.status }}</span>
+        </mat-card-content>
+        <mat-card-footer>
+          <span><mat-icon>group</mat-icon> {{ mission.crewSize }} crew</span>
+          <span><mat-icon>rocket_launch</mat-icon> {{ mission.launchDate | date }}</span>
+        </mat-card-footer>
+      </mat-card>
+    </a>
+  }
+</section>
