@@ -1,0 +1,27 @@
+<h2>Mission Details</h2>
+<p>Review the status, crew and launch plan of a Moonbase mission.</p>
+
+<a mat-button routerLink="/missions">
+  <mat-icon>arrow_back</mat-icon>
+  Back to missions
+</a>
+<!-- 
+@if (mission.value(); as mission) {
+  <mat-card appearance="outlined" class="mission-card">
+    <mat-card-header>
+      <mat-card-title>{{ mission.name }}</mat-card-title>
+      <mat-card-subtitle>{{ mission.id }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <span class="status status--{{ mission.status }}">{{ mission.status }}</span>
+      <p>{{ mission.description }}</p>
+    </mat-card-content>
+    <mat-card-footer>
+      <span><mat-icon>flag</mat-icon> {{ mission.priority }} priority</span>
+      <span><mat-icon>group</mat-icon> {{ mission.crewSize }} crew</span>
+      <span><mat-icon>rocket_launch</mat-icon> {{ mission.launchDate | date: 'medium' }}</span>
+    </mat-card-footer>
+  </mat-card>
+} @else if (mission.isLoading()) {
+  <p>Loading mission...</p>
+} -->
