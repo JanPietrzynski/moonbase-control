@@ -1,5 +1,5 @@
 import { httpResource } from '@angular/common/http';
-import { Service, signal } from '@angular/core';
+import { Resource, Service, signal } from '@angular/core';
 
 export type MissionStatus = 'planned' | 'active' | 'critical' | 'completed';
 export type MissionPriority = 'low' | 'medium' | 'high';
@@ -26,8 +26,8 @@ export class MissionsService {
 
   readonly missions = this.missionsState.asReadonly();
 
-  getMission(id: () => string) {
-    return httpResource<Mission>(() => `http://localhost:4000/missions/${id()}`);
+  getMission(id: () => string): Resource<Mission | undefined> {
+    return httpResource<Mission>(() => `http://localhost:4000/missions/${id()}`).asReadonly();
   }
 }
 

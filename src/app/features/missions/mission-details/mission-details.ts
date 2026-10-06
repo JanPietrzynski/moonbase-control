@@ -14,9 +14,6 @@ import { MissionsService } from '../missions.service';
 })
 export default class MissionDetails {
   private readonly missionsService = inject(MissionsService);
-
-  // Filled automatically from the `:id` part of the URL (see withComponentInputBinding in app.config.ts)
   readonly id = input.required<string>();
-
   readonly mission = this.missionsService.getMission(this.id);
 }
