@@ -1,5 +1,6 @@
-import { httpResource } from '@angular/common/http';
-import { Resource, Service, signal } from '@angular/core';
+import { HttpClient, httpResource } from '@angular/common/http';
+import { inject, Service } from '@angular/core';
+import { Observable } from 'rxjs';
 
 export type MissionStatus = 'planned' | 'active' | 'critical' | 'completed';
 export type MissionPriority = 'low' | 'medium' | 'high';
@@ -17,6 +18,8 @@ export interface Mission {
 
 @Service()
 export class MissionsService {
+  private readonly http = inject(HttpClient);
+
   private readonly missionsState = httpResource<Mission[]>(
     () => 'http://localhost:4000/missions',
     {
@@ -26,8 +29,8 @@ export class MissionsService {
 
   readonly missions = this.missionsState.asReadonly();
 
-  getMission(id: () => string): Resource<Mission | undefined> {
-    return httpResource<Mission>(() => `http://localhost:4000/missions/${id()}`).asReadonly();
+  loadMission(id: string): Observable<Mission> {
+    return this.http.get<Mission>(`http://localhost:4000/missions/${id}`);
   }
 }
 

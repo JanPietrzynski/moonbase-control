@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { Dashboard } from './features/dashboard/dashboard';
-import { missionExistsGuard } from './features/missions/mission-exists.guard';
+import { missionResolver } from './features/missions/mission.resolver';
 
 export const routes: Routes = [
   {
@@ -18,7 +18,7 @@ export const routes: Routes = [
   },
   {
     path: 'missions/:id',
-    canActivate: [missionExistsGuard],
+    resolve: { mission: missionResolver },
     loadComponent: () => import('./features/missions/mission-details/mission-details')
   },
   {
