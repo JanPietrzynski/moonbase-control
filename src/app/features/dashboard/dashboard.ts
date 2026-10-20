@@ -1,12 +1,15 @@
 import { Component, signal } from '@angular/core';
 import { Card } from '../../shared/card/card';
 
+export type IncidentSeverity = 'low' | 'medium' | 'high' | 'critical';
+
 export interface StatusCard {
   id: string;
   title: string;
   value: number;
   icon: string;
   lastUpdated: Date;
+  severity?: IncidentSeverity;
 }
 
 @Component({
@@ -47,6 +50,7 @@ export class Dashboard {
       value: 5,
       icon: 'error',
       lastUpdated: new Date('2026-07-24T16:55:00Z'),
+      severity: 'critical',
     },
   ]);
 

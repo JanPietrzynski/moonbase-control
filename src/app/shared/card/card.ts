@@ -2,10 +2,11 @@ import { Component, input, output } from '@angular/core';
 import { StatusCard } from '../../features/dashboard/dashboard';
 import { MatIconModule } from '@angular/material/icon';
 import { DatePipe } from '@angular/common';
+import { SeverityPipe } from '../pipes/severity-pipe';
 
 @Component({
   selector: 'app-card',
-  imports: [MatIconModule, DatePipe],
+  imports: [MatIconModule, DatePipe, SeverityPipe],
   templateUrl: './card.html',
   styleUrl: './card.scss',
 })
