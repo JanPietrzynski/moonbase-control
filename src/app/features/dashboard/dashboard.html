@@ -8,4 +8,4 @@
   <app-card [card]="criticalIncidents" (selected)="selectCard($event)"></app-card>
 </section>
 
-<p>Card selected: {{ selectedCardId() }}</p>
+<p>{{ selectedCardId() ? 'Card selected: ' + selectedCardId() : 'Select a status card to see available actions' }}</p>

@@ -1,7 +1,14 @@
 import { Component, signal } from '@angular/core';
 import { Card } from '../../shared/card/card';
+
+export type StatusCardId =
+  | 'total-missions'
+  | 'active-missions'
+  | 'open-incidents'
+  | 'critical-incidents';
+
 export interface StatusCard {
-  id: string;
+  id: StatusCardId;
   title: string;
   value: number;
 }
@@ -14,9 +21,9 @@ export interface StatusCard {
 })
 export class Dashboard {
   protected readonly greeting = signal('Good morning, Commander!');
-  selectedCardId = signal<string | null>(null);
+  selectedCardId = signal<StatusCardId | null>(null);
 
-  selectCard(cardId: string): void {
+  selectCard(cardId: StatusCardId): void {
     this.selectedCardId.set(cardId);
   }
 
@@ -39,7 +46,7 @@ export class Dashboard {
   };
 
   criticalIncidents: StatusCard = {
-    id: 'critical-incidents ',
+    id: 'critical-incidents',
     title: 'Critical Incidents',
     value: 5,
   };

@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { StatusCard } from '../../features/dashboard/dashboard';
+import { StatusCard, StatusCardId } from '../../features/dashboard/dashboard';
 
 @Component({
   selector: 'app-card',
@@ -9,10 +9,9 @@ import { StatusCard } from '../../features/dashboard/dashboard';
 })
 export class Card {
   readonly card = input.required<StatusCard>();
-  selected = output<string>();
+  selected = output<StatusCardId>();
 
   selectCard(): void {
-    console.log(this.card().id);
     this.selected.emit(this.card().id);
   }
 }
