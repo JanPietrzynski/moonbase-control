@@ -43,4 +43,10 @@ describe('Card', () => {
 
     expect(emitted).toEqual(['total-missions']);
   });
+
+  it('should display the card icon', () => {
+    const icon: HTMLElement | null = fixture.nativeElement.querySelector('mat-icon');
+
+    expect(icon?.getAttribute('fonticon')).toBe('rocket');
+  });
 });
