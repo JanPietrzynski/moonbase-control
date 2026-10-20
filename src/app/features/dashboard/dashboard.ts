@@ -67,7 +67,7 @@ export class Dashboard {
     },
     {
       id: 'open-incidents',
-      title: 'Open Incidents',
+      title: 'Total Incidents',
       value: this.totalIncidents(),
       icon: 'report',
       lastUpdated: new Date('2026-07-24T13:28:00Z'),
