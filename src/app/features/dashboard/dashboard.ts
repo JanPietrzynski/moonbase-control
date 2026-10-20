@@ -35,7 +35,7 @@ export class Dashboard {
   };
 
   criticalIncidents: StatusCard = {
-    id: 'critical-incidents ',
+    id: 'critical-incidents',
     title: 'Critical Incidents',
     value: 5,
   };
